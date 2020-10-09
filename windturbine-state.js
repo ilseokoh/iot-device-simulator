@@ -5,11 +5,25 @@
 
 "use strict";
 
+var opdata = [
+    [0,1,2,'NONE'],
+    [1,2,3,'NONE'],
+    [2,3,4,'NONE'],
+    [3,4,5,'NONE'],
+    [4,5,6,'NONE'],
+    [5,6,7,'NONE'],
+    [6,7,8,'NONE'],
+    [7,8,9,'NONE'],
+    [8,9,10,'NONE'],
+    [9,10,11,'NONE']
+];
+
 // Default state
 var state = {
+    index: 0,
     power: 1,
     windDirection: 0,
-    state: "NONE"
+    state: 'NONE'
 };
 
 // Default properties
@@ -56,15 +70,23 @@ function main(context, previousState, previousProperties) {
     // using the previous function state.
     restoreSimulation(previousState, previousProperties);
 
-    // just increse power
-    state.power = previousState.hit + 1;
-    state.windDirection = previousState.windDirection + 1;
-    // calc total count
-    if (previousProperties.errorStatus != "STATUS_E01")
-    {
-        properties.errorStatus = "None";
-        updateProperty("errorStatus", properties.errorStatus);
-    }
+    var index = state.index + 1;
+    if (index >= opdata.length) index = 0;
+
+    // update state 
+    var next = opdata[index];
+
+    state.index = next[0];
+    state.power = next[1];
+    state.windDirection = next[2];
+    state.state = 'NONE';
+
+    // // calc total count
+    // if (previousProperties.errorStatus != "STATUS_E01")
+    // {
+    //     properties.errorStatus = "None";
+    //     updateProperty("errorStatus", properties.errorStatus);
+    // }
 
     updateState(state);
 }

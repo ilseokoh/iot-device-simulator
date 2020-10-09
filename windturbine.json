@@ -7,8 +7,10 @@
     "Protocol": "AMQP",
     "Simulation": {
         "InitialState": {
-            "power": 0,
-            "windDirection": 0
+            "index": 0,
+            "power": 1,
+            "windDirection": 0,
+            "state": "NONE"
         },
         "Interval": "00:00:01",
         "Scripts": [
@@ -23,8 +25,8 @@
     },
     "Telemetry": [
         {
-            "Interval": "00:00:10",
-            "MessageTemplate": "{\"power\":${power}, \"windDirection\": \"${windDirection}\"}",
+            "Interval": "00:00:01",
+            "MessageTemplate": "{\"index\":${index}, \"power\":${power}, \"windDirection\": ${windDirection}, \"state\":${state}}",
             "MessageSchema": {
                 "Name": "wt-simulator;v2",
                 "Format": "JSON",
