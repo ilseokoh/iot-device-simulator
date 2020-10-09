@@ -1,0 +1,48 @@
+{
+    "SchemaVersion": "1.0.0",
+    "Id": "wt-simul-02",
+    "Version": "0.0.2",
+    "Name": "Wind Turbine Simulator v2",
+    "Description": "Simulate wind turbine device.",
+    "Protocol": "AMQP",
+    "Simulation": {
+        "InitialState": {
+            "power": 0,
+            "windDirection": 0
+        },
+        "Interval": "00:00:01",
+        "Scripts": [
+            {
+            "Type": "javascript",
+            "Path": "windturbine-state.js"
+            }
+        ]
+    },
+    "Properties": {
+        "errorStatus": "NONE"
+    },
+    "Telemetry": [
+        {
+            "Interval": "00:00:10",
+            "MessageTemplate": "{\"power\":${power}, \"windDirection\": \"${windDirection}\"}",
+            "MessageSchema": {
+                "Name": "wt-simulator;v2",
+                "Format": "JSON",
+                "Fields": {
+                    "power": "double",
+                    "windDirection": "double"
+                }
+            }
+        }
+    ],
+    "CloudToDeviceMethods": {
+        "genError01": {
+            "Type": "javascript",
+            "Path": "error-gen-method-01.js"
+        },
+        "genError02": {
+            "Type": "javascript",
+            "Path": "error-gen-method-02.js"
+        }
+    }
+}
