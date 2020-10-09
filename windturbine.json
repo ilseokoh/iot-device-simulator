@@ -8,8 +8,20 @@
     "Simulation": {
         "InitialState": {
             "index": 0,
-            "power": 1,
-            "windDirection": 0,
+            "originSysTime": "7/29/2018 11:43:00",
+            "genSpeed": 1212.28,
+            "genTorque": 6824.49,
+            "pitchAngle1": 1.99,
+            "pitchAngle2": 2.02,
+            "pitchAngle3": 1.92,
+            "windDirection": -8.6,
+            "windSpeed": 6.66,
+            "power": 870,
+            "yawPosition": 5.05,
+            "winSpeed_PM": 6.66,
+            "power_PM": 0,
+            "genSpeed_PM": 0.3,
+            "genTorgue_PM": -0.486,
             "state": "NONE"
         },
         "Interval": "00:00:01",
@@ -26,13 +38,27 @@
     "Telemetry": [
         {
             "Interval": "00:00:01",
-            "MessageTemplate": "{\"index\":${index}, \"power\":${power}, \"windDirection\": ${windDirection}, \"state\":${state}}",
+            "MessageTemplate": "{\"index\":${index},\"originSysTime\":\"${originSysTime}\",\"genSpeed\":${genSpeed},\"genTorque\":${genTorque},\"pitchAngle1\":${pitchAngle1},\"pitchAngle2\":${pitchAngle2},\"pitchAngle3\":${pitchAngle3},\"windDirection\":${windDirection},\"windSpeed\":${windSpeed},\"power\":${power},\"yawPosition\":${yawPosition},\"winSpeed_PM\":${winSpeed_PM},\"power_PM\":${power_PM},\"genSpeed_PM\":${genSpeed_PM},\"genTorgue_PM\":${genTorgue_PM},\"state\":\"${state}\"}",
             "MessageSchema": {
                 "Name": "wt-simulator;v2",
                 "Format": "JSON",
                 "Fields": {
-                    "power": "double",
-                    "windDirection": "double"
+                    "index": "Integer",
+                    "originSysTime": "DateTime",
+                    "genSpeed": "Double",
+                    "genTorque": "Double",
+                    "pitchAngle1": "Double",
+                    "pitchAngle2": "Double",
+                    "pitchAngle3": "Double",
+                    "windDirection": "Double",
+                    "windSpeed": "Double",
+                    "power": "Double",
+                    "yawPosition": "Double",
+                    "winSpeed_PM": "Double",
+                    "power_PM": "Double",
+                    "genSpeed_PM": "Double",
+                    "genTorgue_PM": "Double",
+                    "state": "Text"
                 }
             }
         }
