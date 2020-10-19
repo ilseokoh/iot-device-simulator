@@ -710,7 +710,7 @@ function main(context, previousState, previousProperties) {
     else state.gearboxTemp = next[3];
 
     if (properties.generator == "alert") state.power = 0;
-    else if (properties.gearbox == "alert") state.power = (state.power * 0.30).toFixed(8);
+    else if (properties.gearbox == "alert") state.power = (next[12] * 0.3).toFixed(2);
     else state.power = next[12];
     
     updateState(state);
