@@ -709,9 +709,10 @@ function main(context, previousState, previousProperties) {
     if (properties.gearbox == "temp-error") state.gearboxTemp = 85.0;
     else state.gearboxTemp = next[3];
 
-    if (properties.gearbox == "alert") state.power = state.power * 0.25;
-    else if (properties.generator == "alert") state.power = 0;
+    if (properties.generator == "alert") state.power = 0;
+    else if (properties.gearbox == "alert") state.power = (state.power * 0.30).toFixed(8);
     else state.power = next[12];
     
     updateState(state);
+    
 }

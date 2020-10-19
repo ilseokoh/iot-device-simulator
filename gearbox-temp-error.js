@@ -23,6 +23,8 @@ var properties = {
 /*jslint unparam: true*/
 function main(context, previousState, previousProperties) {
 
-    properties.gearbox = "temp-error";
+    if (previousProperties.gearbox == "normal") properties.gearbox = "temp-error";
+    else properties.gearbox = "normal";
+
     updateProperty("gearbox", properties.gearbox);
 }

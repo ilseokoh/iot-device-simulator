@@ -23,6 +23,8 @@ var properties = {
 /*jslint unparam: true*/
 function main(context, previousState, previousProperties) {
 
-    properties.gearbox = "alert";
+    if (previousProperties.gearbox == "normal") properties.gearbox = "alert";
+    else properties.gearbox = "normal";
+
     updateProperty("gearbox", properties.gearbox);
 }

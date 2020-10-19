@@ -23,6 +23,8 @@ var properties = {
 /*jslint unparam: true*/
 function main(context, previousState, previousProperties) {
 
-    properties.generator = "alert";
+    if (previousProperties.generator == "normal") properties.generator = "alert";
+    else properties.generator = "normal";
+
     updateProperty("generator", properties.generator);
 }

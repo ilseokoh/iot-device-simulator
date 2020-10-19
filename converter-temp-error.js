@@ -23,6 +23,9 @@ var properties = {
 /*jslint unparam: true*/
 function main(context, previousState, previousProperties) {
 
-    properties.converter = "temp-error";
+
+    if (previousProperties.converter == "normal") properties.converter = "temp-error";
+    else properties.converter = "normal";
+    
     updateProperty("converter", properties.converter);
 }

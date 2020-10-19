@@ -21,7 +21,10 @@
             "winSpeed_PM": 6.66,
             "power_PM": 0,
             "genSpeed_PM": 0.3,
-            "genTorgue_PM": -0.486
+            "genTorgue_PM": -0.486,
+            "nacelleTemp": 45.0,
+            "convTemp": 43.6,
+            "gearboxTemp": 30.0
         },
         "Interval": "00:00:01",
         "Scripts": [
@@ -39,7 +42,7 @@
     "Telemetry": [
         {
             "Interval": "00:00:01",
-            "MessageTemplate": "{\"index\":${index},\"originSysTime\":\"${originSysTime}\",\"genSpeed\":${genSpeed},\"genTorque\":${genTorque},\"pitchAngle1\":${pitchAngle1},\"pitchAngle2\":${pitchAngle2},\"pitchAngle3\":${pitchAngle3},\"windDirection\":${windDirection},\"windSpeed\":${windSpeed},\"power\":${power},\"yawPosition\":${yawPosition},\"winSpeed_PM\":${winSpeed_PM},\"power_PM\":${power_PM},\"genSpeed_PM\":${genSpeed_PM},\"genTorgue_PM\":${genTorgue_PM}}",
+            "MessageTemplate": "{\"index\":${index},\"originSysTime\":\"${originSysTime}\",\"genSpeed\":${genSpeed},\"genTorque\":${genTorque},\"pitchAngle1\":${pitchAngle1},\"pitchAngle2\":${pitchAngle2},\"pitchAngle3\":${pitchAngle3},\"windDirection\":${windDirection},\"windSpeed\":${windSpeed},\"power\":${power},\"yawPosition\":${yawPosition},\"winSpeed_PM\":${winSpeed_PM},\"power_PM\":${power_PM},\"genSpeed_PM\":${genSpeed_PM},\"genTorgue_PM\":${genTorgue_PM},\"nacelleTemp\":${nacelleTemp},\"convTemp\":${convTemp},\"gearboxTemp\":${gearboxTemp}}",
             "MessageSchema": {
                 "Name": "wt-simulator;v2",
                 "Format": "JSON",
@@ -59,8 +62,9 @@
                     "power_PM": "Double",
                     "genSpeed_PM": "Double",
                     "genTorgue_PM": "Double",
-                    "": "",
-                    "": ""
+                    "nacelleTemp": "Double",
+                    "convTemp": "Double",
+                    "gearboxTemp": "Double"
                 }
             }
         }
