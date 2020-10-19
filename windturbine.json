@@ -21,8 +21,7 @@
             "winSpeed_PM": 6.66,
             "power_PM": 0,
             "genSpeed_PM": 0.3,
-            "genTorgue_PM": -0.486,
-            "state": "NONE"
+            "genTorgue_PM": -0.486
         },
         "Interval": "00:00:01",
         "Scripts": [
@@ -33,12 +32,14 @@
         ]
     },
     "Properties": {
-        "errorStatus": "NONE"
+        "gearbox": "normal",
+        "generator": "normal",
+        "converter": "normal"
     },
     "Telemetry": [
         {
             "Interval": "00:00:01",
-            "MessageTemplate": "{\"index\":${index},\"originSysTime\":\"${originSysTime}\",\"genSpeed\":${genSpeed},\"genTorque\":${genTorque},\"pitchAngle1\":${pitchAngle1},\"pitchAngle2\":${pitchAngle2},\"pitchAngle3\":${pitchAngle3},\"windDirection\":${windDirection},\"windSpeed\":${windSpeed},\"power\":${power},\"yawPosition\":${yawPosition},\"winSpeed_PM\":${winSpeed_PM},\"power_PM\":${power_PM},\"genSpeed_PM\":${genSpeed_PM},\"genTorgue_PM\":${genTorgue_PM},\"state\":\"${state}\"}",
+            "MessageTemplate": "{\"index\":${index},\"originSysTime\":\"${originSysTime}\",\"genSpeed\":${genSpeed},\"genTorque\":${genTorque},\"pitchAngle1\":${pitchAngle1},\"pitchAngle2\":${pitchAngle2},\"pitchAngle3\":${pitchAngle3},\"windDirection\":${windDirection},\"windSpeed\":${windSpeed},\"power\":${power},\"yawPosition\":${yawPosition},\"winSpeed_PM\":${winSpeed_PM},\"power_PM\":${power_PM},\"genSpeed_PM\":${genSpeed_PM},\"genTorgue_PM\":${genTorgue_PM}}",
             "MessageSchema": {
                 "Name": "wt-simulator;v2",
                 "Format": "JSON",
@@ -58,19 +59,28 @@
                     "power_PM": "Double",
                     "genSpeed_PM": "Double",
                     "genTorgue_PM": "Double",
-                    "state": "Text"
+                    "": "",
+                    "": ""
                 }
             }
         }
     ],
     "CloudToDeviceMethods": {
-        "genError01": {
+        "gearbox-temp-error": {
             "Type": "javascript",
-            "Path": "error-gen-method-01.js"
+            "Path": "gearbox-temp-error.js"
         },
-        "genError02": {
+        "converter-temp-error": {
             "Type": "javascript",
-            "Path": "error-gen-method-02.js"
+            "Path": "converter-temp-error.js"
+        },
+        "gearbox-alert": {
+            "Type": "javascript",
+            "Path": "gearbox-alert.js"
+        },
+        "generator-alert": {
+            "Type": "javascript",
+            "Path": "generator-alert.js"
         }
     }
 }

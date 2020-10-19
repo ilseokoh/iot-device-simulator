@@ -8,7 +8,9 @@
 
 // Default properties
 var properties = {
-    errorStatus: "STATUS_E02"
+    gearbox: "normal",
+    generator: "normal",
+    converter: "normal"
 };
 
 /**
@@ -21,15 +23,6 @@ var properties = {
 /*jslint unparam: true*/
 function main(context, previousState, previousProperties) {
 
-    var state = {
-        power: 1,
-        windDirection: 0,
-        state: "STATUS_E02"
-    };
-
-    // change status
-    properties.errorStatus = "STATUS_E02";
-    
-    updateState(state);
-    updateProperty("errorStatus", properties.errorStatus);
+    properties.generator = "alert";
+    updateProperty("generator", properties.generator);
 }
